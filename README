@@ -1,4 +1,54 @@
-RECIPES
-["admin", "controllers", "email", "email_dev", "extras", "frontend", "gems", "git", "init", "models", "readme", "routes", "setup", "testing", "views"]
-PREFERENCES
-{:git=>true, :dev_webserver=>"webrick", :prod_webserver=>"passenger", :database=>"sqlite", :templates=>"haml", :frontend=>"bootstrap3", :email=>"smtp", :authentication=>"devise", :devise_modules=>"default", :authorization=>"pundit", :form_builder=>"simple_form", :starter_app=>"none"}
+Photogallery
+========================
+
+This application was generated with the rails_apps_composer gem:
+https://github.com/RailsApps/rails_apps_composer
+provided by the RailsApps Project:
+http://railsapps.github.io/
+
+________________________
+
+Recipes:
+
+* admin
+* controllers
+* email
+* email_dev
+* extras
+* frontend
+* gems
+* git
+* init
+* models
+* readme
+* routes
+* setup
+* testing
+* views
+
+Preferences:
+
+* git: true
+* dev_webserver: webrick
+* prod_webserver: passenger
+* database: sqlite
+* templates: haml
+* frontend: bootstrap3
+* email: smtp
+* authentication: devise
+* devise_modules: default
+* authorization: pundit
+* form_builder: simple_form
+* starter_app: none
+* admin: rails_admin
+* quiet_assets: true
+* local_env_file: foreman
+* better_errors: true
+* pry: true
+* ban_spiders: true
+* github: true
+* mail_view: true
+
+________________________
+
+License
