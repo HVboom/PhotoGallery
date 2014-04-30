@@ -15,6 +15,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'pundit'
 gem 'rails_admin'
+gem 'enumerize'
 gem 'simple_form'
 group :development do
   gem 'better_errors'

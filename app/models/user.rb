@@ -3,11 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
 
-  def set_default_role
-    self.role ||= :user
-  end
-
+  extend Enumerize
+  enumerize :role, in: {guest: 0, member: 1, admin: 2}, default: :guest, predicates: true, scope: true
 end
