@@ -17,6 +17,17 @@ gem 'pundit'
 gem 'rails_admin'
 gem 'enumerize'
 gem 'simple_form'
+
+# RMagick image processing - depends on installed ImageMagick package http://cactuslab.com/imagemagick/
+gem 'rmagick', :require => 'RMagick'
+# CarrierWave file uploader
+gem 'carrierwave'
+# Helper gem to sort the pictures of a gallery
+gem 'acts_as_list'
+# Convert non Ascii characters - used to create external file names
+gem 'asciify', :git => 'git://github.com/levinalex/asciify.git'
+gem 'iconv'  # asciify dependency
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -27,6 +38,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
