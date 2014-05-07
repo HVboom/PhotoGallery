@@ -4,7 +4,7 @@ class Gallery < ActiveRecord::Base
   has_many :pictures, :inverse_of => :gallery # , -> { order("position ASC") }
 
   # mass assignment
-  accepts_nested_attributes_for :pictures
+  accepts_nested_attributes_for :pictures, :allow_destroy => true
 
   # callback to copy pictures to the public location
   after_save :publish
@@ -16,7 +16,12 @@ class Gallery < ActiveRecord::Base
   validates_uniqueness_of :name, :case_sensitive => false
 
   def copy_to
-    #ActsAsList.reorder_positions!(self.pictures)
+    # remove old files
+    picture_class = self.pictures.klass
+    file_prefix = self.name_changed? ? self.name_was : self.name
+    FileUtils.rm_rf(Dir[File.join([picture_class.external_dir, "**", "#{file_prefix}*"]).asciify(picture_class.asciify_map)])
+
+    ActsAsList.reorder_positions!(self.pictures)
     self.pictures.each do |picture|
       picture.copy_to
     end

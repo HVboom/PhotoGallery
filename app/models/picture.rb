@@ -15,16 +15,19 @@ class Picture < ActiveRecord::Base
   validates_presence_of :gallery
 
   # copy to public directory
-  after_save :publish
+  #after_save :publish
 
   # class methods
   def self.asciify_map
     map ||= Asciify::Mapping[:default]
   end
 
+  def self.external_dir
+    File.join([Rails.public_path, ActiveModel::Naming.plural(self)].compact)
+  end
+
   def self.deploy
     # remove old files
-    external_dir = File.join([Rails.public_path, ActiveModel::Naming.plural(self)].compact)
     FileUtils.rm_rf(Dir[File.join([external_dir, '[^.]*'])])
 
     # copy current files
@@ -35,7 +38,7 @@ class Picture < ActiveRecord::Base
 
   # instance methods
   def export_filename
-    ([self.gallery.name, "%02d" % self.position].join(' ').titleize.gsub(/\s+/, '_') + '.jpg').asciify(Picture.asciify_map) unless self.title.blank?
+    ([self.gallery.name, "%02d" % self.position].join(' ').titleize.gsub(/\s+/, '_') + '.jpg').asciify(Picture.asciify_map)
   end
 
   def external_url(version)

@@ -29,6 +29,9 @@ RailsAdmin.config do |config|
     new
     export
     bulk_delete
+    bulk_upload do
+      only Gallery
+    end
     show
     edit
     delete

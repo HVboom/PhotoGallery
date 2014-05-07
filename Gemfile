@@ -15,6 +15,8 @@ gem 'devise'
 gem 'haml-rails'
 gem 'pundit'
 gem 'rails_admin'
+gem 'rails_admin_bulk_upload', path: 'lib/rails_admin_bulk_upload'
+# gem 'rails_admin_bulk_upload', github: 'HVboom/rails_admin_bulk_upload'
 gem 'enumerize'
 gem 'simple_form'
 

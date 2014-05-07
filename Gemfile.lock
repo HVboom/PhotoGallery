@@ -4,6 +4,12 @@ GIT
   specs:
     asciify (0.2.0)
 
+PATH
+  remote: lib/rails_admin_bulk_upload
+  specs:
+    rails_admin_bulk_upload (0.0.1)
+      rails (~> 4.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -245,6 +251,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.0)
   rails_admin
+  rails_admin_bulk_upload!
   rails_layout
   rmagick
   sass-rails (~> 4.0.3)
